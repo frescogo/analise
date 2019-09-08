@@ -44,7 +44,7 @@ plt.axvline(GAME['ritmo'][1], color='k', linestyle='dashed', linewidth=1)
 def atleta (i):
     f = plt.subplot(3, 1, i+2)
 
-    print(i, GAME[i]['pontos'][0])
+    #print(i, GAME[i]['pontos'][0])
     stats = 'Volume:  ' + "{:5d}".format(GAME[i]['pontos'][1]) + '    \n' + \
             'Maximas: ' + "{:5d}".format(GAME[i]['pontos'][2]) + '    \n' + \
             'FINAL:   ' + "{:5d}".format(GAME[i]['pontos'][0]) + '    '
