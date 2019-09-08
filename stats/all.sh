@@ -3,7 +3,7 @@
 # ./all.sh ../Jogos/20190405/
 # :%!sort -r -k3
 
-for i in $1/serial_*.txt; do
+for i in $1/*.txt; do
     #echo $i
     base=`basename $i .txt`
     lua5.3  parse.lua $i /tmp

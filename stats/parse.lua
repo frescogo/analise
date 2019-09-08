@@ -6,8 +6,9 @@ local m = require 'lpeg'
 local P, S, C, R, Ct, Cc = m.P, m.S, m.C, m.R, m.Ct, m.Cc
 
 local INP, out = ...
-local ts = (((1-P'/')^0 * '/')^0 * 'serial_' * C((1-P'.')^1) * '.txt'):match(INP)
-local OUT = out .. '/serial_' .. ts .. '.py'
+--local ts = (((1-P'/')^0 * '/')^0 * 'serial_' * C((1-P'.')^1) * '.txt'):match(INP)
+local pre,ts,pos = (((1-P'/')^0 * '/')^0 * C((1-m.R'09')^0) * C((m.R'09'+'_')^1) * C((1-P'.')^0) * '.txt'):match(INP)
+local OUT = out .. '/' .. pre .. ts .. pos .. '.py'
 
 -------------------------------------------------------------------------------
 
