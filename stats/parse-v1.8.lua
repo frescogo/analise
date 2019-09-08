@@ -1,7 +1,5 @@
 --lua5.3 parse.lua <file> /tmp
 
-local VERSAO = '1.12'
-
 local m = require 'lpeg'
 local P, S, C, R, Ct, Cc = m.P, m.S, m.C, m.R, m.Ct, m.Cc
 
@@ -32,31 +30,34 @@ local patt =
     C((1-S'\r\n')^0)                        * X *   -- Maria
     P'-'^0                                  * X *
     P'TOTAL ........ ' * C(NUMS) * ' pts'   * X *   -- 3701 pts
-    P'Tempo ........ ' * C(NUMS) * 'ms (faltam ' * NUMS * 's)'   * X *   -- 180650 (-0s)
+    P'Tempo ........ ' * C(NUMS) * 'ms (-' * NUMS * 's)'   * X *   -- 180650 (-0s)
     P'Quedas ....... ' * C(NUMS)            * X *   -- 6 quedas
     P'Golpes ....... ' * C(NUMS)            * X *   -- 286 golpes
     P'Ritmo ........ ' * C(NUMS) *'/'* C(NUMS) * ' kmh' * X *   -- 45/45 kmh
     P'Juiz ......... ' * C((1-S'\r\n')^0)   * X *   -- Arnaldo
     (1-NUMS)^1 * C(NUMS) * ' pts'           * X *   -- Joao: 5500
-    P'rev  [' * Ct((X * C(NUMS))^1) *X* '] => ' * C(NUMS) * ' kmh' * X *   -- [ ... ]
-    P'nrm  [' * Ct((X * C(NUMS))^1) *X* '] => ' * C(NUMS) * ' kmh' * X *   -- [ ... ]
+    P'esq  [' * Ct((X * C(NUMS))^1) *X* '] => ' * C(NUMS) * ' kmh' * X *   -- [ ... ]
+    P'dir  [' * Ct((X * C(NUMS))^1) *X* '] => ' * C(NUMS) * ' kmh' * X *   -- [ ... ]
     (1-NUMS)^1 * C(NUMS) * ' pts'           * X *   -- Maria: 4427
-    P'rev  [' * Ct((X * C(NUMS))^1) *X* '] => ' * C(NUMS) * ' kmh' * X *   -- [ ... ]
-    P'nrm  [' * Ct((X * C(NUMS))^1) *X* '] => ' * C(NUMS) * ' kmh' * X *   -- [ ... ]
+    P'esq  [' * Ct((X * C(NUMS))^1) *X* '] => ' * C(NUMS) * ' kmh' * X *   -- [ ... ]
+    P'dir  [' * Ct((X * C(NUMS))^1) *X* '] => ' * C(NUMS) * ' kmh' * X *   -- [ ... ]
     P'-'^0                                  * X *
-    C('(v' * C(NUMS) * '/' *
-                  C(NUMS) * 'cm/'    *
-                  C(NUMS) * 's/max(' *
-                  C(NUMS) * ',' * C(NUMS) * ',' * C(NUMS) * ')/equ' *
-                  C(NUMS) * '/cont' *
-                  C(NUMS) * '/fim'  *
-                  C(NUMS) * ')')        * X *
-    P'-'^1                              * X *
-    Ct(SEQ^1)                           * X *
-    P'-'^1                              * X *
-    P'Atleta    Vol    Maxs    Total'   * X *
-    (1-NUMS)^0 * C(NUMS) *X* '+' *X* C(NUMS) *X* '=' *X* C(NUMS) * ' pts' * X *
-    (1-NUMS)^0 * C(NUMS) *X* '+' *X* C(NUMS) *X* '=' *X* C(NUMS) * ' pts' * X *
+    P'(CONF: v' * C(NUMS) * '.' * C(NUMS) * '.' * C(NUMS) * ' / ' * -- v1.5
+                  C(NUMS) * 'cm / '    *            -- 750cm
+                  C(NUMS) * 's / pot=' *            -- 180s
+                  C(NUMS) * ' / equ='  *            -- pot=0/1
+                  C(NUMS) * ' /' * X *              -- equ=0/1
+                            'cont=' *
+                  P(NUMS) * ' / fim='  *            -- cont=4%
+                  C(NUMS) * ' / max='  *            -- fim=18
+                  (P(NUMS) * ' / sens=')^-1 *       -- max=85
+                  C(NUMS) * ')'              * X *  -- sens=220
+    P'-'^1                                  * X *
+    Ct(SEQ^1)                               * X *
+    P'-'^1                                  * X *
+    P'Atleta    Vol     Esq     Dir   Total' * X*
+    (1-NUMS)^0 * C(NUMS) *X* '+' *X* C(NUMS) *X* '+' *X* C(NUMS) *X* '=' *X* C(NUMS) * ' pts' * X *
+    (1-NUMS)^0 * C(NUMS) *X* '+' *X* C(NUMS) *X* '+' *X* C(NUMS) *X* '=' *X* C(NUMS) * ' pts' * X *
     P'-'^1                                  * X *
     P'Media ........ ' *X* C(NUMS) * ' pts' *X*
     P'Equilibrio ... ' *X* C(NUMS) *X* '(-)' *X*
@@ -68,15 +69,15 @@ local patt =
              
 local esquerda, direita, total, _, quedas, golpes, ritmo1, ritmo2, _,
       p0, esqs0,esq0,dirs0,dir0, p1, esqs1,esq1,dirs1,dir1,
-      conf, version, dist, tempo, maxs,max,reves, equ, cont, fim,
+      _, _, _, distancia, tempo, potencia, equilibrio, continuidade, _,
       seqs,
-      _vol0, _maxs0, _tot0,
-      _vol1, _maxs1, _tot1,
+      _vol0, _esq0, _dir0, _tot0,
+      _vol1, _esq1, _dir1, _tot1,
       _media, _equilibrio, _quedas, _final = patt:match(assert(io.open(INP)):read'*a')
 
 print(string.format('%-12s %-12s %5d  %2d  %2d', esquerda, direita, _final, quedas, ritmo2))
 --[[
-print(esquerda, direita, total, ritmo2, dir1, version, dist, tempo, maxs,max, reves, equ, cont, seqs)
+print(esquerda, direita, total, ritmo2, dir1, distancia, continuidade, seqs)
 for i,seq in ipairs(seqs) do
     print(i,seq)
 end
@@ -88,7 +89,7 @@ error'ok'
 --assert(total==_final and p0==_tot0 and p1==_tot1)
 
 local nomes  = { esquerda, direita }
-local pontos = { {_tot0,_vol0,_maxs0}, {_tot1,_vol1,_maxs1} }
+local pontos = { {_tot0,_vol0,_esq0,_dir0}, {_tot1,_vol1,_esq1,_dir1} }
 local ritmos = { {0,esq0,dir0}, {0,esq1,dir1} }
 local lefts  = { esqs0, esqs1 }
 local rights = { dirs0, dirs1 }
@@ -136,10 +137,14 @@ end
 
 local out = assert(io.open(OUT,'w'))
 out:write("GAME = {\n")
-out:write("\t'versao' : '"..VERSAO.."',\n")
 out:write("\t'timestamp' : '"..ts.."',\n")
-out:write("\t'config'    : '"..conf.."',\n")
-out:write("\t'maximas'   : '"..maxs.."',\n")
+out:write("\t'conf'      : {\n")
+out:write("\t\t'distancia'    : "..distancia..",\n")
+out:write("\t\t'tempo'        : "..tempo..",\n")
+out:write("\t\t'potencia'     : "..potencia..",\n")
+out:write("\t\t'equilibrio'   : "..equilibrio..",\n")
+out:write("\t\t'continuidade' : "..continuidade..",\n")
+out:write("\t},\n")
 out:write("\t'pontos'    : (".._final..",".._media..",".._equilibrio..",".._quedas.."),\n")
 out:write("\t'ritmo'     : ("..ritmo1..","..ritmo2.."),\n")
 out:write("\t'golpes'    : "..golpes..",\n")

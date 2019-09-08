@@ -24,15 +24,18 @@ stats = 'Golpes: ' + str(GAME['golpes'])                                 + '\n' 
         'Quedas: ' + str(GAME['quedas'])
 plt.text(0.01, 0.95, stats, va='top', ha='left', transform=f1.transAxes, family='monospace', size=8)
 
-plt.title(GAME[0]['nome'] + ' / ' +
-          GAME[1]['nome'] + ' / ' +
-          GAME['config']  + ' / ' +
+plt.title(GAME[0]['nome'] + ' / ' + GAME[1]['nome'] + ' / ' +
+          str(GAME['conf']['distancia'])    + 'cm / ' +
+          str(GAME['conf']['tempo'])        + 's / pot=' +
+          str(GAME['conf']['potencia'])     + ' / equ=' +
+          str(GAME['conf']['equilibrio'])   + ' / cont=' +
+          str(GAME['conf']['continuidade']) + ' / ' +
           GAME['timestamp'])
 
 plt.xlabel('Velocidade (km/h)')
 plt.xlim(xmax=100)
 plt.ylabel('Golpes')
-plt.ylim(ymax=30)
+plt.ylim(ymax=50)
 plt.grid(axis='y')
 plt.hist(GAME[0]['hits']+GAME[1]['hits'], bins=20, color=['gray'], label='xxx')
 plt.hist(GAME[0]['hits'], bins=20, color=['red'],  histtype='step')
@@ -44,15 +47,15 @@ plt.axvline(GAME['ritmo'][1], color='k', linestyle='dashed', linewidth=1)
 def atleta (i):
     f = plt.subplot(3, 1, i+2)
 
-    print(i, GAME[i]['pontos'][0])
-    stats = 'Volume:  ' + "{:5d}".format(GAME[i]['pontos'][1]) + '    \n' + \
-            'Maximas: ' + "{:5d}".format(GAME[i]['pontos'][2]) + '    \n' + \
-            'FINAL:   ' + "{:5d}".format(GAME[i]['pontos'][0]) + '    '
+    stats = 'Volume:   ' + "{:5d}".format(GAME[i]['pontos'][1]) + '    \n' + \
+            'Esquerda: ' + "{:5d}".format(GAME[i]['pontos'][2]) + '    \n' + \
+            'Direita:  ' + "{:5d}".format(GAME[i]['pontos'][3]) + '    \n' + \
+            'FINAL:    ' + "{:5d}".format(GAME[i]['pontos'][0]) + '    '
     plt.text(1, 0.95, stats, va='top', ha='right', transform=f.transAxes, family='monospace', size=8)
 
     stats = 'Golpes:   ' + "{:3d}".format(GAME[i]['golpes'])   + '\n' + \
             'Volume:   ' + "{:3d}".format(GAME[i]['ritmo'][0]) + '\n'
-    if GAME['maximas'] == 1:
+    if GAME['conf']['potencia'] == 1:
         stats += 'Esquerda: ' + "{:3d}".format(GAME[i]['ritmo'][1]) + '\n' + \
                  'Direita:  ' + "{:3d}".format(GAME[i]['ritmo'][2])
     plt.text(0.01, 0.95, stats, va='top', ha='left', transform=f.transAxes, family='monospace', size=8)
@@ -61,11 +64,11 @@ def atleta (i):
     plt.xlabel('Velocidade (km/h)')
     plt.xlim(xmax=100)
     plt.ylabel('Golpes')
-    plt.ylim(ymax=30)
+    plt.ylim(ymax=50)
     plt.grid(axis='y')
     plt.hist(GAME[i]['hits'], bins=20, color=['gray'])
     plt.axvline(GAME[i]['ritmo'][0], color='k', linestyle='dashed', linewidth=1)
-    if GAME['maximas'] == 1:
+    if GAME['conf']['potencia'] == 1:
         plt.hist(GAME[i]['left'],  bins=20, color=['blue'], histtype='step')
         plt.hist(GAME[i]['right'], bins=20, color=['red'],  histtype='step')
         plt.axvline(GAME[i]['ritmo'][1], color='blue', linestyle='dashed', linewidth=1)
