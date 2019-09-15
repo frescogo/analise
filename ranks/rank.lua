@@ -115,45 +115,8 @@ function MATCH (t)
 
 end
 
---dofile (...)
---dofile '/tmp/matches.lua'
---[[
-for i=1,1 do
-dofile '../Jogos/Bolivar/20190319/matches.lua'
-dofile '../Jogos/Bolivar/20190323/matches.lua'
-dofile '../Jogos/Bolivar/20190325/matches.lua'
-dofile '../Jogos/Bolivar/20190327/matches.lua'
-dofile '../Jogos/Bolivar/20190328/matches.lua'
-dofile '../Jogos/Bolivar/20190330/matches.lua'
-dofile '../Jogos/Bolivar/20190403/matches.lua'
-dofile '../Jogos/Bolivar/20190405/matches.lua'
-dofile '../Jogos/Bolivar/20190407/matches.lua'
-dofile '../Jogos/Bolivar/20190414/matches.lua'
-dofile '../Jogos/Bolivar/20190501/matches.lua'
-dofile '../Jogos/Bolivar/20190601/matches.lua'
-end
-]]
-
---[=[
-dofile '../Jogos/ms/m1.lua'
-dofile '../Jogos/ms/m2.lua'
-dofile '../Jogos/ms/m3.lua'
-dofile '../Jogos/ms/m4.lua'
-dofile '../Jogos/ms/m5.lua'
-dofile '../Jogos/ms/m6.lua'
-dofile '../Jogos/ms/m7.lua'
-dofile '../Jogos/ms/m8.lua'
-dofile '../Jogos/ms/m9.lua'
-dofile '../Jogos/ms/m10.lua'
-dofile '../Jogos/ms/m11.lua'
-dofile '../Jogos/ms/m12.lua'
-dofile '../Jogos/ms/m13.lua'
-dofile '../Jogos/ms/m14.lua'
-dofile '../Jogos/ms/m15.lua'
-dofile '../Jogos/ms/m16.lua'
-]=]
-
-dofile '../Jogos/Rio_das_Ostras/20190616/matches.lua'
+dofile '../jogos/Bolivar/20190908/ranking.lua'
+dofile '../jogos/Bolivar/20190914/ranking.lua'
 
 if false then
 

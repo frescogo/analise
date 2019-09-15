@@ -55,7 +55,7 @@ local patt =
     P'-'^1                              * X *
     Ct(SEQ^1)                           * X *
     P'-'^1                              * X *
-    P'Atleta    Vol    Maxs    Total'   * X *
+    P'Atleta' *X* 'Vol' *X* 'Maxs' *X* 'Total' * X *
     (1-NUMS)^0 * C(NUMS) *X* '+' *X* C(NUMS) *X* '=' *X* C(NUMS) * ' pts' * X *
     (1-NUMS)^0 * C(NUMS) *X* '+' *X* C(NUMS) *X* '=' *X* C(NUMS) * ' pts' * X *
     P'-'^1                                  * X *
@@ -66,7 +66,7 @@ local patt =
 --[[
 ]]
     P(0)
-             
+
 local esquerda, direita, total, _, quedas, golpes, ritmo1, ritmo2, _,
       p0, esqs0,esq0,dirs0,dir0, p1, esqs1,esq1,dirs1,dir1,
       conf, version, dist, tempo, maxs,max,reves, equ, cont, fim,
@@ -77,6 +77,7 @@ local esquerda, direita, total, _, quedas, golpes, ritmo1, ritmo2, _,
 
 print(string.format('%-12s %-12s %5d  %5d  %5d', esquerda, direita, _final, quedas, ritmo2))
 --[[
+print(INP)
 print(esquerda, direita, total, ritmo2, dir1, version, dist, tempo, maxs,max, reves, equ, cont, seqs)
 for i,seq in ipairs(seqs) do
     print(i,seq)

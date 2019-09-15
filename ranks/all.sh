@@ -1,10 +1,9 @@
 #!/bin/sh
 
-# ./all.sh ../Jogos/20190405/
-# :%!sort -r -k3
+# $ ./all.sh ../jogos/Bolivar/20190908/ > ../jogos/Bolivar/20190908/ranking.lua
 
 for i in $1/serial_*.txt; do
     #echo $i
     base=`basename $i .txt`
-    lua5.3  parse.lua $i
+    lua5.3 parse.lua $i
 done

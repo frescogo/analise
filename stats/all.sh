@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# ./all.sh ../Jogos/20190405/ > ranking.md
-# :%!sort -r -k3
+# ./all.sh ../jogos/Bolivar/20190405/ > ranking.md
+# :%!sort -n -r -k3
 
 echo "\`\`\`"
 echo "ESQ          DIR            PTS    QDS    KMH"
