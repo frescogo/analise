@@ -32,12 +32,12 @@ local patt =
     P'/'                                    * X *
     C((1-S'\r\n')^0)                        * X *   -- Maria
     P'-'^0                                  * X *
-    P'TOTAL .............. ' * C(NUMS) * ' pts'   * X *   -- 3701 pts
-    P'Tempo Restante ..... ' * C(NUMS) * ':' * C(NUMS) * X * -- 180650 (-0s)
-    P'Quedas ............. ' * C(NUMS)            * X *   -- 6 quedas
-    P'Golpes ............. ' * C(NUMS)            * X *   -- 286 golpes
-    P'Média .............. ' * C(NUMS) * ' km/h'  * X *   -- 45 kmh
-    P'Juiz ............... ' * C((1-S'\r\n')^0)   * X *   -- Arnaldo
+    P'TOTAL ........ ' * C(NUMS) * ' pts'   * X *   -- 3701 pts
+    P'Tempo ........ ' * C(NUMS) * 'ms (faltam ' * NUMS * 's)'   * X *   -- 180650 (-0s)
+    P'Quedas ....... ' * C(NUMS)            * X *   -- 6 quedas
+    P'Golpes ....... ' * C(NUMS)            * X *   -- 286 golpes
+    P'Ritmo ........ ' * C(NUMS) *'/'* C(NUMS) * ' kmh' * X *   -- 45/45 kmh
+    P'Juiz ......... ' * C((1-S'\r\n')^0)   * X *   -- Arnaldo
     (1-NUMS)^1 * C(NUMS) * ' pts'           * X *   -- Joao: 5500
     P'rev  [' * Ct((X * C(NUMS))^1) *X* '] => ' * C(NUMS) * ' kmh' * X *   -- [ ... ]
     P'nrm  [' * Ct((X * C(NUMS))^1) *X* '] => ' * C(NUMS) * ' kmh' * X *   -- [ ... ]
@@ -67,7 +67,7 @@ local patt =
 ]]
     P(0)
 
-local esquerda, direita, total, _,_, quedas, golpes, ritmo, _,
+local esquerda, direita, total, _, quedas, golpes, ritmo1, ritmo2, _,
       p0, esqs0,esq0,dirs0,dir0, p1, esqs1,esq1,dirs1,dir1,
       conf, version, dist, tempo, maxs,max,reves, equ, cont, fim,
       seqs,
@@ -75,10 +75,10 @@ local esquerda, direita, total, _,_, quedas, golpes, ritmo, _,
       _vol1, _maxs1, _tot1,
       _media, _equilibrio, _quedas, _final = patt:match(assert(io.open(INP)):read'*a')
 
-print(string.format('%-12s %-12s %5d  %5d  %5d', esquerda, direita, _final, quedas, ritmo))
+print(string.format('%-12s %-12s %5d  %5d  %5d', esquerda, direita, _final, quedas, ritmo2))
 --[[
 print(INP)
-print(esquerda, direita, total, ritmo, dir1, version, dist, maxs,max, reves, equ, cont, seqs)
+print(esquerda, direita, total, ritmo2, dir1, version, dist, tempo, maxs,max, reves, equ, cont, seqs)
 for i,seq in ipairs(seqs) do
     print(i,seq)
 end
@@ -141,9 +141,9 @@ out:write("GAME = {\n")
 out:write("\t'versao' : '"..VERSAO.."',\n")
 out:write("\t'timestamp' : '"..ts.."',\n")
 out:write("\t'config'    : '"..conf.."',\n")
-out:write("\t'maximas'   : "..maxs..",\n")
+out:write("\t'maximas'   : '"..maxs.."',\n")
 out:write("\t'pontos'    : (".._final..",".._media..",".._equilibrio..",".._quedas.."),\n")
-out:write("\t'ritmo'     : "..ritmo..",\n")
+out:write("\t'ritmo'     : ("..ritmo1..","..ritmo2.."),\n")
 out:write("\t'golpes'    : "..golpes..",\n")
 out:write("\t'quedas'    : "..quedas..",\n")
 out:write("\t0           : "..player(1)..",\n")

@@ -28,12 +28,12 @@ local patt =
     P'/'                                    * X *
     C((1-S'\r\n')^0)                        * X *   -- Maria
     P'-'^0                                  * X *
-    P'TOTAL .............. ' * C(NUMS) * ' pts'   * X *   -- 3701 pts
-    P'Tempo Restante ..... ' * C(NUMS) * ':' * C(NUMS) * X *   -- 180650 (-0s)
-    P'Quedas ............. ' * C(NUMS)            * X *   -- 6 quedas
-    P'Golpes ............. ' * C(NUMS)            * X *   -- 286 golpes
-    P'Média .............. ' * C(NUMS) * ' km/h'  * X *   -- 45/45 kmh
-    P'Juiz ............... ' * C((1-S'\r\n')^0)   * X *   -- Arnaldo
+    P'TOTAL ........ ' * C(NUMS) * ' pts'   * X *   -- 3701 pts
+    P'Tempo ........ ' * C(NUMS) * 'ms (faltam ' * NUMS * 's)'   * X *   -- 180650 (-0s)
+    P'Quedas ....... ' * C(NUMS)            * X *   -- 6 quedas
+    P'Golpes ....... ' * C(NUMS)            * X *   -- 286 golpes
+    P'Ritmo ........ ' * C(NUMS) *'/'* C(NUMS) * ' kmh' * X *   -- 45/45 kmh
+    P'Juiz ......... ' * C((1-S'\r\n')^0)   * X *   -- Arnaldo
     (1-NUMS)^1 * C(NUMS) * ' pts'           * X *   -- Joao: 5500
     P'rev  [' * Ct((X * C(NUMS))^1) *X* '] => ' * C(NUMS) * ' kmh' * X *   -- [ ... ]
     P'nrm  [' * Ct((X * C(NUMS))^1) *X* '] => ' * C(NUMS) * ' kmh' * X *   -- [ ... ]
@@ -63,7 +63,7 @@ local patt =
 ]]
     P(0)
 
-local k1, k2, total, _,_, quedas, golpes, ritmo, juiz,
+local k1, k2, total, _, quedas, golpes, ritmo1, ritmo2, juiz,
       p0, esqs0,esq0,dirs0,dir0, p1, esqs1,esq1,dirs1,dir1,
       conf, version, dist, tempo, maxs,max,reves, equ, cont, fim,
       seqs,
@@ -77,7 +77,7 @@ assert(dist    == '750')
 assert(tempo   == '150')
 assert(maxs    == '1')
 assert(equ     == '1')
-assert(version == '1122')
+assert(version == '1121')
 
 --local version = v1..'.'..v2..'.'..v3
 local arena = 'Bolivar'

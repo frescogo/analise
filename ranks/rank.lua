@@ -58,8 +58,8 @@ function MATCH (t)
         --return
     end
 
-    if not ALL.players[k1] then ALL.players[k1]={k=k1,n=0,r=3000,ms={}} end
-    if not ALL.players[k2] then ALL.players[k2]={k=k2,n=0,r=3000,ms={}} end
+    if not ALL.players[k1] then ALL.players[k1]={k=k1,n=0,r=2000,ms={}} end
+    if not ALL.players[k2] then ALL.players[k2]={k=k2,n=0,r=2000,ms={}} end
 
     local p1 = assert(ALL.players[k1], k1)
     local p2 = assert(ALL.players[k2], k2)
@@ -117,6 +117,8 @@ end
 
 dofile '../jogos/Bolivar/20190908/ranking.lua'
 dofile '../jogos/Bolivar/20190914/ranking.lua'
+dofile '../jogos/Bolivar/20190915/ranking.lua'
+dofile '../jogos/Bolivar/20190921/ranking.lua'
 
 if false then
 
