@@ -67,12 +67,18 @@ def atleta (i):
     plt.ylim(ymax=50)
     plt.grid(axis='y')
     hist(GAME[i]['hits'], ['gray'], False)
-    plt.axvline(GAME[i]['pontos'][0], color='k', linestyle='dashed', linewidth=1)
     hist(list(filter(maior0,GAME[i]['normal'])), ['green'], False)
     hist(list(filter(maior0,GAME[i]['reves'])),  ['red'], False)
-    plt.axvline(GAME[i]['pontos'][1], color='blue',   linestyle='dashed', linewidth=1)
-    plt.axvline(GAME[i]['pontos'][2], color='green',  linestyle='dashed', linewidth=1)
-    plt.axvline(GAME[i]['pontos'][3], color='red',    linestyle='dashed', linewidth=1)
+
+    pts = GAME[i]['pontos']
+    plt.axvline(pts[0], color='k', linestyle='dashed', linewidth=1)
+    plt.text(pts[0],40,'pts',fontsize=7,rotation=90,bbox=dict(facecolor='white'))
+    plt.axvline(pts[1], color='blue',   linestyle='dashed', linewidth=1)
+    plt.text(pts[1],40,'vol',fontsize=7,rotation=90,bbox=dict(facecolor='white'))
+    plt.axvline(pts[2], color='green',  linestyle='dashed', linewidth=1)
+    plt.text(pts[2],40,'nrm',fontsize=7,rotation=90,bbox=dict(facecolor='white'))
+    plt.axvline(pts[3], color='red',    linestyle='dashed', linewidth=1)
+    plt.text(pts[3],40,'rev',fontsize=7,rotation=90,bbox=dict(facecolor='white'))
 
 atleta(0)
 atleta(1)
