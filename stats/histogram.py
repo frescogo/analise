@@ -13,10 +13,10 @@ plt.rc('figure', figsize=(8, 6))
 
 f1 = plt.subplot(3, 1, 1)
 
-stats = 'Media:    ' + "{:5d}".format(GAME['pontos'][1]) + '    \n' + \
-        'Equil.:   ' + "{:5d}".format(GAME['pontos'][2]) + ' (-)\n' + \
-        'Quedas:   ' + "{:5d}".format(GAME['pontos'][3]) + ' (-)\n' + \
-        'FINAL:    ' + "{:5d}".format(GAME['pontos'][0]) + '    '
+stats = 'Media:    ' + "{:2.2f}".format(GAME['pontos'][1]) + '    \n' + \
+        'Equil.:   ' + "{:2.2f}".format(GAME['pontos'][2]) + ' (-)\n' + \
+        'Quedas:   ' + "{:2.2f}".format(GAME['pontos'][3]) + ' (-)\n' + \
+        'FINAL:    ' + "{:2.2f}".format(GAME['pontos'][0]) + '    '
 plt.text(0.99, 0.95, stats, va='top', ha='right', transform=f1.transAxes, family='monospace', size=8)
 
 stats = 'Golpes: ' + str(GAME['golpes']) + '\n' + \
@@ -44,9 +44,9 @@ def atleta (i):
     f = plt.subplot(3, 1, i+2)
 
     #print(i, GAME[i]['pontos'][0])
-    stats = 'Volume:  ' + "{:5d}".format(GAME[i]['pontos'][1]) + '    \n' + \
-            'Maximas: ' + "{:5d}".format(GAME[i]['pontos'][2]) + '    \n' + \
-            'FINAL:   ' + "{:5d}".format(GAME[i]['pontos'][0]) + '    '
+    stats = 'Volume:  ' + "{:2.2f}".format(GAME[i]['pontos'][1]) + '    \n' + \
+            'Maximas: ' + "{:2.2f}".format(GAME[i]['pontos'][2]) + '    \n' + \
+            'FINAL:   ' + "{:2.2f}".format(GAME[i]['pontos'][0]) + '    '
     plt.text(1, 0.95, stats, va='top', ha='right', transform=f.transAxes, family='monospace', size=8)
 
     stats = 'Golpes:   ' + "{:3d}".format(GAME[i]['golpes'])   + '\n' + \
