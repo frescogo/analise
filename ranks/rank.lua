@@ -115,10 +115,7 @@ function MATCH (t)
 
 end
 
-dofile '../jogos/Bolivar/20190908/ranking.lua'
-dofile '../jogos/Bolivar/20190914/ranking.lua'
-dofile '../jogos/Bolivar/20190915/ranking.lua'
-dofile '../jogos/Bolivar/20190921/ranking.lua'
+dofile '../jogos/Bolivar/20190929/ranking.lua'
 
 if false then
 
@@ -154,10 +151,10 @@ else
           string.format('%6s','Pontos'))
     print('-------------------------------------')
     for _, t in pairs(T) do
-        print(string.format('%-15s',t[1]) ..'  '..
-              string.format('%5s',  t[2]) ..'  '..
-              string.format('%5d',  t[3]) ..'  '..
-              string.format('%6s',  t[4]))
+        print(string.format('%-15s', t[1]) ..'  '..
+              string.format('%5s',   t[2]) ..'  '..
+              string.format('%5d',   t[3]) ..'   '..
+              string.format('%2.2f', t[4]/100))
     end
 
 end

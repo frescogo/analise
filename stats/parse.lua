@@ -67,6 +67,8 @@ local patt =
 ]]
     P(0)
 
+-------------------------------------------------------------------------------
+
 local esquerda, direita, total, _,_, quedas, golpes, ritmo, _,
       p0, esqs0,dirs0, p1, esqs1,dirs1,
       conf, version, dist, tempo, max,reves, equ, cont, fim,
