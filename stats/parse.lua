@@ -92,8 +92,8 @@ error'ok'
 local nomes  = { esquerda, direita }
 local pontos = { {_tot0,_vol0,_nrm0,_rev0}, {_tot1,_vol1,_nrm1,_rev1} }
 --local ritmos = { {0,esq0,dir0}, {0,esq1,dir1} }
-local lefts  = { esqs0, esqs1 }
-local rights = { dirs0, dirs1 }
+local reves  = { esqs0, esqs1 }
+local normal = { dirs0, dirs1 }
 local hits = { {}, {} }
     for _,seq in ipairs(seqs) do
         local isesq, vels = table.unpack(seq)
@@ -129,8 +129,8 @@ function player (i)
     ret = ret .. "\t\t'golpes' : "..#hits[i]..",\n"
     ret = ret .. "\t\t'pontos' : ("..table.concat(pontos[i],',').."),\n"
     --ret = ret .. "\t\t'ritmo'  : ("..table.concat(ritmos[i],',').."),\n"
-    ret = ret .. "\t\t'left'   : ("..table.concat(lefts[i],',').."),\n"
-    ret = ret .. "\t\t'right'  : ("..table.concat(rights[i],',').."),\n"
+    ret = ret .. "\t\t'reves'  : ("..table.concat(reves[i],',').."),\n"
+    ret = ret .. "\t\t'normal' : ("..table.concat(normal[i],',').."),\n"
     ret = ret .. "\t\t'hits'   : ("..table.concat(hits[i],',').."),\n"
     ret = ret .. "\t}\n"
     return ret
