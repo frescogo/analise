@@ -4,7 +4,7 @@
 # :%!sort -n -r -k3
 
 echo "\`\`\`"
-echo "ESQ          DIR            PTS    QDS    KMH"
+echo "ESQ          DIR           PTS     QDS    KMH"
 echo "---------------------------------------------"
 for i in $1/*.txt; do
     #echo $i

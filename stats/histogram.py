@@ -21,7 +21,7 @@ f1 = plt.subplot(3, 1, 1)
 
 stats = 'Media:    ' + "{0:05.2f}".format(GAME['pontos'][1]) + '    \n' + \
         'Equil.:   ' + "{0:05.2f}".format(GAME['pontos'][2]) + ' (-)\n' + \
-        'Quedas:   ' + "{0:05.2f}".format(GAME['pontos'][3]) + ' (-)\n' + \
+        'Quedas:   ' + "{0:5d}".format(GAME['pontos'][3]) + '% (-)\n' + \
         'FINAL:    ' + "{0:05.2f}".format(GAME['pontos'][0]) + '    '
 plt.text(0.99, 0.95, stats, va='top', ha='right', transform=f1.transAxes, family='monospace', size=8)
 
