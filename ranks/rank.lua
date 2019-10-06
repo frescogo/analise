@@ -115,7 +115,9 @@ function MATCH (t)
 
 end
 
-dofile '../jogos/Bolivar/20190929/ranking.lua'
+dofile 'files/bolivar-20190929.lua'
+dofile 'files/bolivar-20191005.lua'
+dofile 'files/bolivar-20191006.lua'
 
 if false then
 
