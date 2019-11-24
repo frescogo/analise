@@ -72,7 +72,7 @@ MATCH {
 
 MATCH {
     timestamp = '20190929_125727',
-    players   = { 'Douglas', 'MarceloD' },
+    players   = { 'Douglas', 'M_Dreux' },
     arena     = 'Bolivar',
     referee   = 'Chico',
     score     = 4226,

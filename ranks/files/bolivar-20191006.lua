@@ -18,7 +18,7 @@ MATCH {
 
 MATCH {
     timestamp = '20191006110507',
-    players   = { 'ACesar', 'Be' },
+    players   = { 'A_Cesar', 'Be' },
     arena     = 'Bolivar',
     referee   = '?',
     score     = 2537,
@@ -45,7 +45,7 @@ MATCH {
 
 MATCH {
     timestamp = '20191006112817',
-    players   = { 'Rogerio', 'ACesar' },
+    players   = { 'Rogerio', 'A_Cesar' },
     arena     = 'Bolivar',
     referee   = '?',
     score     = 3406,
@@ -99,7 +99,7 @@ MATCH {
 
 MATCH {
     timestamp = '20191006121939',
-    players   = { 'ACesar', 'Sergio' },
+    players   = { 'A_Cesar', 'Sergio' },
     arena     = 'Bolivar',
     referee   = '?',
     score     = 2684,
@@ -126,7 +126,7 @@ MATCH {
 
 MATCH {
     timestamp = '20191006124001',
-    players   = { 'Marquinho', 'Simone' },
+    players   = { 'Marquinhos', 'Simone' },
     arena     = 'Bolivar',
     referee   = '?',
     score     = 2973,
@@ -144,7 +144,7 @@ MATCH {
 
 MATCH {
     timestamp = '20191006125248',
-    players   = { 'Marquinho', 'Cobucci' },
+    players   = { 'Marquinhos', 'Cobucci' },
     arena     = 'Bolivar',
     referee   = '?',
     score     = 4232,
@@ -225,7 +225,7 @@ MATCH {
 
 MATCH {
     timestamp = '20191006140640',
-    players   = { 'MarceloD', 'Antonio' },
+    players   = { 'M_Dreux', 'Antonio' },
     arena     = 'Bolivar',
     referee   = '?',
     score     = 4668,

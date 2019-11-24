@@ -2,20 +2,42 @@
 -- lua5.3 rank.lua | sort -n -r -k2 | head -n 9 | sort -n -r -k3
 
 X = {
-    Lira        = true,
+    A_Cesar     = true,
     Antonio     = true,
+    Be          = true,
+    Brisson     = true,
+    Cobucci     = true,
+    Diego       = true,
     Douglas     = true,
-    Rogerio     = true,
-    Silvio      = true,
-    Tome        = true,
-    Paulinha    = true,
-    Mauricio    = true,
-    Luiz_N      = true,
-    Ira         = true,
+    Edu         = true,
     Eliane      = true,
-    Lucia       = true,
+    Felipe      = true,
     Franklin    = true,
+    Guilherme   = true,
+    Ira         = true,
+    Italo       = true,
+    Julio       = true,
+    Kaka        = true,
+    Leo         = true,
+    Linhares    = true,
+    Lira        = true,
+    Lucia       = true,
+    Magali      = true,
+    Marco       = true,
+    Marquinhos  = true,
+    Martinha    = true,
+    Mateus      = true,
+    Mauricio    = true,
+    M_Dreux     = true,
+    Negao       = true,
+    Paulinha    = true,
+    Piaui       = true,
+    Rogerio     = true,
+    Romildo     = true,
     Sergio      = true,
+    Silvio      = true,
+    Simone      = true,
+    Tome        = true,
 }
 
 ALL = {
@@ -55,7 +77,8 @@ end
 function MATCH (t)
     local k1, k2 = table.unpack(t.players)
     if not (X[k1] and X[k2]) then
-        --return
+        local inv = X[k1] and k2 or k1
+        error ("Jogador invalido: "..inv)
     end
 
     if not ALL.players[k1] then ALL.players[k1]={k=k1,n=0,r=2000,ms={}} end
@@ -118,6 +141,7 @@ end
 dofile 'files/bolivar-20190929.lua'
 dofile 'files/bolivar-20191005.lua'
 dofile 'files/bolivar-20191006.lua'
+dofile 'files/bolivar-20191124.lua'
 
 if false then
 
