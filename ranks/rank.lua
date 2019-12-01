@@ -3,6 +3,7 @@
 
 X = {
     A_Cesar     = true,
+    Adao        = true,
     Antonio     = true,
     Be          = true,
     Brisson     = true,
@@ -11,15 +12,18 @@ X = {
     Douglas     = true,
     Edu         = true,
     Eliane      = true,
+    Elmo        = true,
     Felipe      = true,
     Franklin    = true,
     Guilherme   = true,
     Ira         = true,
     Italo       = true,
+    Jair        = true,
     Julio       = true,
     Kaka        = true,
     Leo         = true,
     Linhares    = true,
+    Lino        = true,
     Lira        = true,
     Lucia       = true,
     Magali      = true,
@@ -142,6 +146,7 @@ dofile 'files/bolivar-20190929.lua'
 dofile 'files/bolivar-20191005.lua'
 dofile 'files/bolivar-20191006.lua'
 dofile 'files/bolivar-20191124.lua'
+dofile 'files/bolivar-20191201.lua'
 
 if false then
 
