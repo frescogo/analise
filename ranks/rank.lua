@@ -1,3 +1,5 @@
+INITIAL = 2000
+
 -- lua5.3 rank.lua | sort -n -r -k3
 -- lua5.3 rank.lua | sort -n -r -k2 | head -n 9 | sort -n -r -k3
 
@@ -98,8 +100,8 @@ function MATCH (t)
         error ("Jogador invalido: "..inv)
     end
 
-    if not ALL.players[k1] then ALL.players[k1]={k=k1,n=0,r=2000,ms={}} end
-    if not ALL.players[k2] then ALL.players[k2]={k=k2,n=0,r=2000,ms={}} end
+    if not ALL.players[k1] then ALL.players[k1]={k=k1,n=0,r=INITIAL,ms={}} end
+    if not ALL.players[k2] then ALL.players[k2]={k=k2,n=0,r=INITIAL,ms={}} end
 
     local p1 = assert(ALL.players[k1], k1)
     local p2 = assert(ALL.players[k2], k2)
