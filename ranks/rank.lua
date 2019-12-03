@@ -5,8 +5,11 @@ X = {
     A_Cesar     = true,
     Adao        = true,
     Antonio     = true,
+    Akatsuka    = true,
+    Ayaka       = true,
     Be          = true,
     Brisson     = true,
+    Chikako     = true,
     Cobucci     = true,
     Diego       = true,
     Douglas     = true,
@@ -16,11 +19,13 @@ X = {
     Felipe      = true,
     Franklin    = true,
     Guilherme   = true,
+    Hanako      = true,
     Ira         = true,
     Italo       = true,
     Jair        = true,
     Julio       = true,
     Kaka        = true,
+    Kota        = true,
     Leo         = true,
     Linhares    = true,
     Lino        = true,
@@ -32,16 +37,24 @@ X = {
     Martinha    = true,
     Mateus      = true,
     Mauricio    = true,
+    Maya        = true,
     M_Dreux     = true,
+    Miyayan     = true,
+    Myi         = true,
+    Naoya       = true,
     Negao       = true,
     Paulinha    = true,
     Piaui       = true,
     Rogerio     = true,
     Romildo     = true,
+    Ryota       = true,
+    Ryo         = true,
     Sergio      = true,
     Silvio      = true,
     Simone      = true,
+    Takashi     = true,
     Tome        = true,
+    Yasuo       = true,
 }
 
 ALL = {
@@ -147,6 +160,7 @@ dofile 'files/bolivar-20191005.lua'
 dofile 'files/bolivar-20191006.lua'
 dofile 'files/bolivar-20191124.lua'
 dofile 'files/bolivar-20191201.lua'
+dofile 'files/bolivar-20191203.lua'
 
 if false then
 
