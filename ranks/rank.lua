@@ -1,4 +1,4 @@
-INITIAL = 2000
+INITIAL = 2500
 
 -- lua5.3 rank.lua | sort -n -r -k3
 -- lua5.3 rank.lua | sort -n -r -k2 | head -n 9 | sort -n -r -k3
@@ -6,25 +6,34 @@ INITIAL = 2000
 X = {
     A_Cesar     = true,
     Adao        = true,
+    Aline       = true,
     Antonio     = true,
     Akatsuka    = true,
     Ayaka       = true,
     Be          = true,
+    Beto        = true,
     Brisson     = true,
+    Carmen      = true,
     Chikako     = true,
+    Claudinha   = true,
     Cobucci     = true,
+    Cris        = true,
+    Didi        = true,
     Diego       = true,
+    Don         = true,
     Douglas     = true,
     Edu         = true,
     Eliane      = true,
     Elmo        = true,
     Felipe      = true,
+    Filipe      = true,
     Franklin    = true,
     Guilherme   = true,
     Hanako      = true,
     Ira         = true,
     Italo       = true,
     Jair        = true,
+    Joe         = true,
     Julio       = true,
     Kaka        = true,
     Kota        = true,
@@ -34,27 +43,35 @@ X = {
     Lira        = true,
     Lucia       = true,
     Magali      = true,
+    Marcelinho  = true,
     Marco       = true,
     Marquinhos  = true,
     Martinha    = true,
     Mateus      = true,
     Mauricio    = true,
-    Maya        = true,
+    Maaya       = true,
     M_Dreux     = true,
-    Miyayan     = true,
-    Myi         = true,
+    Mie         = true,
+    Miya        = true,
     Naoya       = true,
+    Nana        = true,
     Negao       = true,
+    Niltinho    = true,
+    Paty        = true,
     Paulinha    = true,
     Piaui       = true,
     Rogerio     = true,
     Romildo     = true,
+    Roni        = true,
     Ryota       = true,
     Ryo         = true,
     Sergio      = true,
+    Silvia      = true,
     Silvio      = true,
     Simone      = true,
+    Taka        = true,
     Takashi     = true,
+    Tiago       = true,
     Tome        = true,
     Yasuo       = true,
 }
@@ -163,6 +180,7 @@ dofile 'files/bolivar-20191006.lua'
 dofile 'files/bolivar-20191124.lua'
 dofile 'files/bolivar-20191201.lua'
 dofile 'files/bolivar-20191203.lua'
+dofile 'files/bolivar-20191205.lua'
 
 if false then
 

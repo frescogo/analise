@@ -9,7 +9,7 @@ MATCH {
 
 MATCH {
     timestamp = '20191203_100257',
-    players   = { 'Chikako', 'Miyayan' },
+    players   = { 'Chikako', 'Miya' },
     arena     = 'Bolivar',
     referee   = 'Chico',
     score     = 2668,
@@ -18,7 +18,7 @@ MATCH {
 
 MATCH {
     timestamp = '20191203_100811',
-    players   = { 'Lucia', 'Miyayan' },
+    players   = { 'Lucia', 'Miya' },
     arena     = 'Bolivar',
     referee   = 'Chico',
     score     = 2704,
@@ -54,7 +54,7 @@ MATCH {
 
 MATCH {
     timestamp = '20191203_104937',
-    players   = { 'Miyayan', 'Antonio' },
+    players   = { 'Miya', 'Antonio' },
     arena     = 'Bolivar',
     referee   = 'Chico',
     score     = 3079,
@@ -63,7 +63,7 @@ MATCH {
 
 MATCH {
     timestamp = '20191203_110001',
-    players   = { 'Maya', 'Antonio' },
+    players   = { 'Maaya', 'Antonio' },
     arena     = 'Bolivar',
     referee   = 'Chico',
     score     = 4339,
@@ -189,7 +189,7 @@ MATCH {
 
 MATCH {
     timestamp = '20191203_143707',
-    players   = { 'Hanako', 'Myi' },
+    players   = { 'Hanako', 'Mie' },
     arena     = 'Bolivar',
     referee   = 'Chico',
     score     = 2524,
@@ -198,7 +198,7 @@ MATCH {
 
 MATCH {
     timestamp = '20191203_144216',
-    players   = { 'Hanako', 'Myi' },
+    players   = { 'Hanako', 'Mie' },
     arena     = 'Bolivar',
     referee   = 'Chico',
     score     = 2884,

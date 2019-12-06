@@ -1,20 +1,22 @@
 ```
 Atleta           Jogos    Par  Pontos
 -------------------------------------
-Antonio             22      4   55.20
-Mateus               7     20   43.94
-Piaui               13     40   43.85
-Douglas             25     12   39.46
-Tome                12     27   38.99
-Rogerio             12     25   35.88
-Lucia               19     12   34.37
-Marquinhos           9     40   33.26
-Simone               8     35   32.74
-Ira                  8     40   31.64
-Mauricio            18     14   31.09
-Sergio              10     37   30.11
-Paulinha            10     31   29.89
+Antonio             30      3   52.44
+Didi                 8     17   48.23
+Mateus              11     15   45.03
+Piaui               13     40   43.95
+Douglas             31      9   39.50
+Tome                12     27   39.29
+Rogerio             14     18   35.73
+Lucia               24     12   33.05
+Marquinhos           9     40   33.05
+Mauricio            23     13   32.76
+Simone               8     35   32.68
+Sergio              11     30   30.20
+Paulinha            10     31   30.06
+Ira                  8     40   29.46
 Magali               8     25   28.74
-A_Cesar              7     20   21.65
-Martinha             8     55   15.16
+Ayaka                7     29   25.07
+A_Cesar              7     20   22.21
+Martinha             8     55   16.33
 ```
