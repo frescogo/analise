@@ -45,9 +45,9 @@ def atleta (i,clr):
     f = plt.subplot(3, 1, i+2)
 
     #print(i, GAME[i]['pontos'][0])
-    stats = 'Pontos:  ' + "{:5d}".format(GAME[i]['pontos']) + '\n' + \
-            'Golpes:  ' + "{:5d}".format(GAME[i]['golpes']) + '\n' + \
-            'Vel -/+: ' + str(GAME[i]['min']) + '/' + str(GAME[i]['max'])
+    stats = 'Pontos: ' + "{:5d}".format(GAME[i]['pontos']) + '\n' + \
+            'Golpes: ' + "{:5d}".format(GAME[i]['golpes']) + '\n' + \
+            'Vel-/+: ' + str(GAME[i]['min']) + '/' + str(GAME[i]['max'])
     plt.text(0.01, 0.95, stats, va='top', ha='left', transform=f.transAxes, family='monospace', size=8)
 
     stats = 'Médias    \n' + \
