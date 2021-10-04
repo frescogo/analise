@@ -1,3 +1,5 @@
+# python3 histogram.py sample/frescogo-2021_09_26_15_43_39-patricia-didi.py sample/
+
 import sys
 import os
 import math
@@ -32,16 +34,14 @@ plt.xlim(xmin=40,xmax=90)
 plt.ylabel('Golpes')
 plt.ylim(ymax=60)
 plt.grid(axis='y')
-print(GAME[0]['hits']+GAME[1]['hits'])
-plt.hist(GAME[0]['hits']+GAME[1]['hits'], bins, color=['gray'])
-#plt.hist(GAME[0]['hits']+GAME[1]['hits'], bins=10, color=['green'], histtype='step')
-plt.hist(GAME[0]['hits'], bins, color=['green'], histtype='step')
-plt.hist(GAME[1]['hits'], bins, color=['blue'],  histtype='step')
+plt.hist(GAME[0]['hits']+GAME[1]['hits'], bins, color=['gray'], alpha=0.75)
+plt.hist(GAME[0]['hits'], bins, color=['gold'], histtype='step')
+plt.hist(GAME[1]['hits'], bins, color=['blue'], histtype='step')
 plt.axvline(GAME['m300'], color='k',   linestyle='dashed', linewidth=1)
 plt.axvline(GAME['m150'], color='red', linestyle='dashed', linewidth=1)
 #plt.legend()
 
-def atleta (i):
+def atleta (i,clr):
     f = plt.subplot(3, 1, i+2)
 
     #print(i, GAME[i]['pontos'][0])
@@ -61,12 +61,12 @@ def atleta (i):
     plt.ylabel('Golpes')
     plt.ylim(ymax=60)
     plt.grid(axis='y')
-    plt.hist(GAME[i]['hits'], bins, color=['gray'])
+    plt.hist(GAME[i]['hits'], bins, color=[clr], alpha=0.75)
     plt.axvline(GAME[i]['m150'], color='k',   linestyle='dashed', linewidth=1)
     plt.axvline(GAME[i]['m50'],  color='red', linestyle='dashed', linewidth=1)
 
-atleta(0)
-atleta(1)
+atleta(0, 'gold')
+atleta(1, 'blue')
 
 plt.tight_layout(pad=1, w_pad=1, h_pad=1)
 plt.savefig(out)
