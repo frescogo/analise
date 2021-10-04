@@ -35,7 +35,7 @@ plt.ylabel('Golpes')
 plt.ylim(ymax=60)
 plt.grid(axis='y')
 plt.hist(GAME[0]['hits']+GAME[1]['hits'], bins, color=['gray'], alpha=0.75)
-plt.hist(GAME[0]['hits'], bins, color=['gold'], histtype='step')
+plt.hist(GAME[0]['hits'], bins, color=['darkgreen'], histtype='step')
 plt.hist(GAME[1]['hits'], bins, color=['blue'], histtype='step')
 plt.axvline(GAME['m300'], color='k',   linestyle='dashed', linewidth=1)
 plt.axvline(GAME['m150'], color='red', linestyle='dashed', linewidth=1)
@@ -65,7 +65,7 @@ def atleta (i,clr):
     plt.axvline(GAME[i]['m150'], color='k',   linestyle='dashed', linewidth=1)
     plt.axvline(GAME[i]['m50'],  color='red', linestyle='dashed', linewidth=1)
 
-atleta(0, 'gold')
+atleta(0, 'darkgreen')
 atleta(1, 'blue')
 
 plt.tight_layout(pad=1, w_pad=1, h_pad=1)

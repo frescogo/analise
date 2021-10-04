@@ -28,7 +28,7 @@ local patt =
     P'Data:'          *X* C(NSPC) *X*
     P'Versão:'        *X* C(P'v'*NUMS*'.'*NUMS)*'.'*NUMS * NL *X*
     P'Descanso:'      *X* NL *X*
-    P'Quedas:'        *X* C(NUMS) *X*
+    P'Quedas:'        *X* C(NUMS) *X* (('('*C(NUMS)*P(1)*NUMS*')')+Cc(false)) *X*
     Ct(C((1-P':')^0) * ':' *X* C(NUMS) * ' pontos / ' * C(NUMS) * ' golpes / ' * (NUMS*'.'*NUMS) * ' km/h') * NL *X*
     Ct(C((1-P':')^0) * ':' *X* C(NUMS) * ' pontos / ' * C(NUMS) * ' golpes / ' * (NUMS*'.'*NUMS) * ' km/h') * NL *X*
     P'Parcial:'       *X* NL *X*
@@ -38,13 +38,13 @@ local patt =
     Ct(SEQ^0)         *X*
     P(0)
 
-local data,versao,quedas,esq,dir,final,seqs = patt:match(assert(io.open(INP)):read'*a')
-print(data, versao, quedas, esq,dir, final, seqs)
+local data,versao,quedas,_quedas_,esq,dir,final,seqs = patt:match(assert(io.open(INP)):read'*a')
+--print(data, versao, quedas, esq,dir, final, seqs)
 
 assert(VERSAO == versao)
 print(string.format('%-12s %-12s %5d  %5d', esq[1], dir[1], final, quedas))
 
-print(seqs)
+--[[
 print'---'
 for i,seq in ipairs(seqs) do
     for j,v in ipairs(seq) do
@@ -52,6 +52,7 @@ for i,seq in ipairs(seqs) do
     end
     print()
 end
+]]
 
 esq = {
     nome   = esq[1],
@@ -96,7 +97,6 @@ end
 for i=151, #dir.hits do
     dir.hits[i] = nil
 end
---print(esq.golpes,dir.golpes,#hits[1],#hits[2])
 
 for i=1, 150 do
     esq.m150 = esq.m150 + (esq.hits[i] or 0)
@@ -112,7 +112,10 @@ end
 esq.m50 = esq.m50 / 50
 dir.m50 = dir.m50 / 50
 
-assert((#seqs==quedas+1) or (#seqs==tonumber(quedas)))
+do
+    local x = _quedas_ or quedas
+    assert((#seqs==x+1) or (#seqs==tonumber(x)))
+end
 
 function player (i,t)
     local ret = "{\n"
@@ -132,7 +135,7 @@ local out = assert(io.open(OUT,'w'))
 out:write("GAME = {\n")
 out:write("\t'versao' : '"..VERSAO.."',\n")
 out:write("\t'timestamp' : '"..ts.."',\n")
-out:write("\t'final'     : "..final..",\n")
+out:write("\t'final'     : "..tonumber(final)..",\n")
 out:write("\t'm300'      : "..((esq.m150+esq.m150)/2)..",\n")
 out:write("\t'm150'      : "..((dir.m50+dir.m50)/2)..",\n")
 out:write("\t'golpes'    : "..(#esq.hits+#dir.hits)..",\n")
