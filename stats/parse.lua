@@ -6,7 +6,8 @@ local m = require 'lpeg'
 local P, S, C, R, Ct, Cc = m.P, m.S, m.C, m.R, m.Ct, m.Cc
 
 local INP, out = ...
-local pre,ts,pos = (((1-P'/')^0 * '/')^0 * C((1-m.R'09')^0) * C((m.R'09'+'_')^1) * C((1-P'.')^0) * '.txt'):match(INP)
+--print(INP,out)
+local pre,ts,pos = (((1-P'/')^0 * '/')^0 * C((1-m.R'09')^0) * C((m.R'09'+'_'+'-')^1) * C((1-P'.')^0) * '.txt'):match(INP)
 local OUT = out .. '/' .. pre .. ts .. pos .. '.py'
 
 -------------------------------------------------------------------------------
@@ -41,7 +42,7 @@ local patt =
 local data,versao,quedas,_quedas_,esq,dir,final,seqs = patt:match(assert(io.open(INP)):read'*a')
 --print(data, versao, quedas, esq,dir, final, seqs)
 
-assert(VERSAO == versao)
+--assert(VERSAO == versao)
 print(string.format('%-12s %-12s %5d  %5d', esq[1], dir[1], final, quedas))
 
 --[[

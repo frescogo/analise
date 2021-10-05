@@ -52,7 +52,7 @@ def atleta (i,clr):
 
     stats = 'Médias    \n' + \
             '150+: ' + "{:.2f}".format(GAME[i]['m150']) + '  \n' + \
-            '50+:  ' + "{:.2f}".format(GAME[i]['m50'])  + '  '
+            ' 50+: ' + "{:.2f}".format(GAME[i]['m50'])  + '  '
     plt.text(1, 0.95, stats, va='top', ha='right', transform=f.transAxes, family='monospace', size=8)
 
     plt.title(GAME[i]['nome'])
