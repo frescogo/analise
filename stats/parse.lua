@@ -62,6 +62,7 @@ esq = {
     hits   = {},
     m150   = 0,
     m50    = 0,
+    m25    = 0,
 }
 
 dir = {
@@ -71,6 +72,7 @@ dir = {
     hits   = {},
     m150   = 0,
     m50    = 0,
+    m25    = 0,
 }
 
 -------------------------------------------------------------------------------
@@ -113,18 +115,26 @@ end
 esq.m50 = esq.m50 / 50
 dir.m50 = dir.m50 / 50
 
+for i=0, 25-1 do
+    esq.m25 = esq.m25 + (esq.hits[150-i] or 0)
+    dir.m25 = dir.m25 + (dir.hits[150-i] or 0)
+end
+esq.m25 = esq.m25 / 25
+dir.m25 = dir.m25 / 25
+
 do
     local x = _quedas_ or quedas
     assert((#seqs==x+1) or (#seqs==tonumber(x)))
 end
 
-function player (i,t)
+function player (t)
     local ret = "{\n"
     ret = ret .. "\t\t'nome'   : '"..t.nome.."',\n"
     ret = ret .. "\t\t'golpes' : "..t.golpes..",\n"
     ret = ret .. "\t\t'pontos' : "..t.pontos..",\n"
     ret = ret .. "\t\t'm150'   : "..t.m150..",\n"
     ret = ret .. "\t\t'm50'    : "..t.m50..",\n"
+    ret = ret .. "\t\t'm25'    : "..t.m25..",\n"
     ret = ret .. "\t\t'hits'   : ("..table.concat(t.hits,',').."),\n"
     ret = ret .. "\t\t'min'    : "..t.hits[#t.hits]..",\n"
     ret = ret .. "\t\t'max'    : "..t.hits[1]..",\n"
@@ -137,11 +147,12 @@ out:write("GAME = {\n")
 out:write("\t'versao' : '"..VERSAO.."',\n")
 out:write("\t'timestamp' : '"..ts.."',\n")
 out:write("\t'final'     : "..tonumber(final)..",\n")
-out:write("\t'm300'      : "..((esq.m150+esq.m150)/2)..",\n")
-out:write("\t'm150'      : "..((dir.m50+dir.m50)/2)..",\n")
+out:write("\t'm300'      : "..((esq.m150+dir.m150)/2)..",\n")
+out:write("\t'm150'      : "..((esq.m50+dir.m50)/2)..",\n")
+out:write("\t'm50'       : "..((esq.m25+dir.m25)/2)..",\n")
 out:write("\t'golpes'    : "..(#esq.hits+#dir.hits)..",\n")
 out:write("\t'quedas'    : "..quedas..",\n")
-out:write("\t0           : "..player(1,esq)..",\n")
-out:write("\t1           : "..player(2,dir)..",\n")
+out:write("\t0           : "..player(esq)..",\n")
+out:write("\t1           : "..player(dir)..",\n")
 out:write("}\n")
 out:close()

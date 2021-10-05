@@ -22,7 +22,8 @@ plt.text(0.01, 0.95, stats, va='top', ha='left', transform=f1.transAxes, family=
 
 stats = 'Médias    \n' + \
         '300+: ' + "{:.2f}".format(GAME['m300']) + '  \n' + \
-        '150+: ' + "{:.2f}".format(GAME['m150']) + '  '
+        '150+: ' + "{:.2f}".format(GAME['m150']) + '  \n' + \
+        ' 50-: ' + "{:.2f}".format(GAME['m50'])  + '  '
 plt.text(1, 0.95, stats, va='top', ha='right', transform=f1.transAxes, family='monospace', size=8)
 
 plt.title(GAME[0]['nome'] + ' / ' +
@@ -39,6 +40,7 @@ plt.hist(GAME[0]['hits'], bins, color=['darkgreen'], histtype='step')
 plt.hist(GAME[1]['hits'], bins, color=['blue'], histtype='step')
 plt.axvline(GAME['m300'], color='k',   linestyle='dashed', linewidth=1)
 plt.axvline(GAME['m150'], color='red', linestyle='dashed', linewidth=1)
+plt.axvline(GAME['m50'],  color='red', linestyle='dashed', linewidth=1)
 #plt.legend()
 
 def atleta (i,clr):
@@ -52,7 +54,8 @@ def atleta (i,clr):
 
     stats = 'Médias    \n' + \
             '150+: ' + "{:.2f}".format(GAME[i]['m150']) + '  \n' + \
-            ' 50+: ' + "{:.2f}".format(GAME[i]['m50'])  + '  '
+            ' 50+: ' + "{:.2f}".format(GAME[i]['m50'])  + '  \n' + \
+            ' 25-: ' + "{:.2f}".format(GAME[i]['m25'])  + '  '
     plt.text(1, 0.95, stats, va='top', ha='right', transform=f.transAxes, family='monospace', size=8)
 
     plt.title(GAME[i]['nome'])
@@ -64,6 +67,7 @@ def atleta (i,clr):
     plt.hist(GAME[i]['hits'], bins, color=[clr], alpha=0.75)
     plt.axvline(GAME[i]['m150'], color='k',   linestyle='dashed', linewidth=1)
     plt.axvline(GAME[i]['m50'],  color='red', linestyle='dashed', linewidth=1)
+    plt.axvline(GAME[i]['m25'],  color='red', linestyle='dashed', linewidth=1)
 
 atleta(0, 'darkgreen')
 atleta(1, 'blue')
