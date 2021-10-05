@@ -43,7 +43,6 @@ local data,versao,quedas,_quedas_,esq,dir,final,seqs = patt:match(assert(io.open
 --print(data, versao, quedas, esq,dir, final, seqs)
 
 --assert(VERSAO == versao)
-print(string.format('%-12s %-12s %5d  %5d', esq[1], dir[1], final, quedas))
 
 --[[
 print'---'
@@ -142,17 +141,23 @@ function player (t)
     return ret
 end
 
+local m300 = (esq.m150+dir.m150) / 2
+local m100 = (esq.m50+dir.m50)   / 2
+local m50  = (esq.m25+dir.m25)   / 2
+
 local out = assert(io.open(OUT,'w'))
 out:write("GAME = {\n")
 out:write("\t'versao' : '"..VERSAO.."',\n")
 out:write("\t'timestamp' : '"..ts.."',\n")
 out:write("\t'final'     : "..tonumber(final)..",\n")
-out:write("\t'm300'      : "..((esq.m150+dir.m150)/2)..",\n")
-out:write("\t'm150'      : "..((esq.m50+dir.m50)/2)..",\n")
-out:write("\t'm50'       : "..((esq.m25+dir.m25)/2)..",\n")
+out:write("\t'm300'      : "..m300..",\n")
+out:write("\t'm100'      : "..m100..",\n")
+out:write("\t'm50'       : "..m50..",\n")
 out:write("\t'golpes'    : "..(#esq.hits+#dir.hits)..",\n")
 out:write("\t'quedas'    : "..quedas..",\n")
 out:write("\t0           : "..player(esq)..",\n")
 out:write("\t1           : "..player(dir)..",\n")
 out:write("}\n")
 out:close()
+
+print(string.format('%-12s %-12s %5d  %5d   %02.2f   %02.2f   %02.2f', esq.nome, dir.nome, final, quedas, m300,m100,m50))

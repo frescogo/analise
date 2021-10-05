@@ -5,8 +5,8 @@
 
 echo "\`\`\`"
 mkdir -p "$1/stats/"
-echo "ESQ          DIR            PTS    QDS"
-echo "--------------------------------------"
+echo "ESQ          DIR            PTS    QDS    300+    100+    50-"
+echo "--------------------------------------------------------------"
 for i in $1/*.txt; do
     #echo $i
     base=`basename "$i" .txt`

@@ -22,7 +22,7 @@ plt.text(0.01, 0.95, stats, va='top', ha='left', transform=f1.transAxes, family=
 
 stats = 'Médias    \n' + \
         '300+: ' + "{:.2f}".format(GAME['m300']) + '  \n' + \
-        '150+: ' + "{:.2f}".format(GAME['m150']) + '  \n' + \
+        '100+: ' + "{:.2f}".format(GAME['m100']) + '  \n' + \
         ' 50-: ' + "{:.2f}".format(GAME['m50'])  + '  '
 plt.text(1, 0.95, stats, va='top', ha='right', transform=f1.transAxes, family='monospace', size=8)
 
@@ -39,7 +39,7 @@ plt.hist(GAME[0]['hits']+GAME[1]['hits'], bins, color=['gray'], alpha=0.75)
 plt.hist(GAME[0]['hits'], bins, color=['darkgreen'], histtype='step')
 plt.hist(GAME[1]['hits'], bins, color=['blue'], histtype='step')
 plt.axvline(GAME['m300'], color='k',   linestyle='dashed', linewidth=1)
-plt.axvline(GAME['m150'], color='red', linestyle='dashed', linewidth=1)
+plt.axvline(GAME['m100'], color='red', linestyle='dashed', linewidth=1)
 plt.axvline(GAME['m50'],  color='red', linestyle='dashed', linewidth=1)
 #plt.legend()
 
