@@ -127,6 +127,11 @@ do
 end
 
 function player (t)
+    local min,max = 0,0
+    if #t.hits > 0 then
+        min = t.hits[#t.hits]
+        max = t.hits[1]
+    end
     local ret = "{\n"
     ret = ret .. "\t\t'nome'   : '"..t.nome.."',\n"
     ret = ret .. "\t\t'golpes' : "..t.golpes..",\n"
@@ -135,8 +140,8 @@ function player (t)
     ret = ret .. "\t\t'm50'    : "..t.m50..",\n"
     ret = ret .. "\t\t'm25'    : "..t.m25..",\n"
     ret = ret .. "\t\t'hits'   : ("..table.concat(t.hits,',').."),\n"
-    ret = ret .. "\t\t'min'    : "..t.hits[#t.hits]..",\n"
-    ret = ret .. "\t\t'max'    : "..t.hits[1]..",\n"
+    ret = ret .. "\t\t'min'    : "..min..",\n"
+    ret = ret .. "\t\t'max'    : "..max..",\n"
     ret = ret .. "\t}\n"
     return ret
 end
